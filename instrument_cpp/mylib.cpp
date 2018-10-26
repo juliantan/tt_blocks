@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <vector>
 
 void work_a()
 {
@@ -14,4 +15,6 @@ void work_c()
   printf("work_c\n");
   work_a();
   work_b();
+  	std::vector<int> vi;
+	vi.size();
 }

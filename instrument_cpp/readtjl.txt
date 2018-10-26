@@ -1,3 +1,6 @@
 gcc -g -rdynamic mylib.cpp instrument.cpp -fPIC -shared -finstrument-functions -o libmylib.so
 
 gcc -g -rdynamic myexe.cpp -L. -lmylib -Wl,-rpath=. -finstrument-functions -o myexe
+
+
+!!! sometimes -O3 introduce crashes
