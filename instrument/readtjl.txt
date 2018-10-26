@@ -1,0 +1,3 @@
+gcc -g -rdynamic mylib.c instrument.c -fPIC -shared -finstrument-functions -o libmylib.so
+
+gcc -g -rdynamic myexe.c -L. -lmylib -Wl,-rpath=. -finstrument-functions -o myexe
