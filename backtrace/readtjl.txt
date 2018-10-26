@@ -1,0 +1,31 @@
+7f1e7b587000-7f1e7b588000 r-xp 00000000 08:11 335036574                  /home/tanjl/_tt/backtrace/libadd.so
+7f1e7b588000-7f1e7b787000 ---p 00001000 08:11 335036574                  /home/tanjl/_tt/backtrace/libadd.so
+7f1e7b787000-7f1e7b788000 r--p 00000000 08:11 335036574                  /home/tanjl/_tt/backtrace/libadd.so
+7f1e7b788000-7f1e7b789000 rw-p 00001000 08:11 335036574                  /home/tanjl/_tt/backtrace/libadd.so
+7f1e7b789000-7f1e7b7af000 r-xp 00000000 08:11 334768864                  /lib/x86_64-linux-gnu/ld-2.23.so
+7f1e7b991000-7f1e7b994000 rw-p 00000000 00:00 0 
+7f1e7b9ad000-7f1e7b9ae000 rw-p 00000000 00:00 0 
+7f1e7b9ae000-7f1e7b9af000 r--p 00025000 08:11 334768864                  /lib/x86_64-linux-gnu/ld-2.23.so
+7f1e7b9af000-7f1e7b9b0000 rw-p 00026000 08:11 334768864                  /lib/x86_64-linux-gnu/ld-2.23.so
+7f1e7b9b0000-7f1e7b9b1000 rw-p 00000000 00:00 0 
+7ffca3072000-7ffca3087000 rw-p 00000000 00:00 0                          [stack]
+7ffca30fc000-7ffca30fe000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+Dump map end...
+
+
+Dump stack start...
+backtrace() returned 8 addresses
+  [00] ./backtrace(dump+0x2e) [0x400ccc]
+  [01] ./backtrace(signal_handler+0x47) [0x400de7]
+  [02] /lib/x86_64-linux-gnu/libc.so.6(+0x354b0) [0x7f1e7b1f24b0]
+  [03] ./libadd.so(add1+0x1a) [0x7f1e7b5876aa]
+  [04] ./libadd.so(add+0x1c) [0x7f1e7b5876df]
+  [05] ./backtrace(main+0x2f) [0x400c15]
+  [06] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0) [0x7f1e7b1dd830]
+  [07] ./backtrace(_start+0x29) [0x400b19]
+Dump stack end...
+
+
+tanjl@ttworld:~/_tt/backtrace$ addr2line -e libadd.so $(printf %x $((0x7f1e7b5876aa-0x7f1e7b587000)))
+/home/tanjl/_tt/backtrace/add.c:13
